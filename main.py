@@ -187,7 +187,7 @@ def infer_on_stream(args, client):
             result = infer_network.get_output(cur_request_id)
 
             # Draw Bounting Box
-            frame, current_count, d, tk = draw_outputs(result, frame, initial_w, initial_h, temp, tk)
+            frame, current_count, d, tk = draw_outputs(result, frame, initial_width, initial_height, temp, tk)
 
             # Printing Inference Time
             inf_time_message = "Inference time: {:.3f}ms".format(det_time * 1000)
