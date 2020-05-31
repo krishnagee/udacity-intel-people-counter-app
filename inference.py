@@ -68,10 +68,10 @@ class Network:
         assert len(self.net.outputs) == output_size, \
             "Make sure only {} output size".format(len(self.net.outputs))
 
-        return ie, self.get_input_shape()
+        return ie, self.input_shape()
 
 
-    def get_input_shape(self):
+    def input_shape(self):
         return self.net.inputs[self.input_blob].shape
 
     def exec_net(self, request_id, frame):
@@ -83,7 +83,7 @@ class Network:
         infer_status = self.net_plugin.requests[request_id].wait(-1)
         return infer_status
 
-    def get_output(self, request_id, output=None):
+    def output(self, request_id, output=None):
         if output:
             res = self.infer_request_handle.outputs[output]
         else:
